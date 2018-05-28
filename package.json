@@ -8,7 +8,7 @@
     "copy": "copyfiles -f ./src/index.html ./dist",
     "build-client": "npm run clean & npm run copy & webpack --progress --mode development",
     "build-server": "babel server -s -D -d server-dist",
-    "build-seeder": "babel utils server/models -s -D -d seeder-dist",
+    "build-seeder": "babel utils server/models -D -d seeder-dist & babel ./server/config.js --out-file seeder-dist/config.js",
     "build": "npm run build-client & npm run build-server & npm run build-seeder",
     "seeder": "npm run build-seeder; node seeder-dist/seeder.js",
     "serve": "node server-dist"
